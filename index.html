@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+#sampleform{
+Background-image:url('image1.jpeg');
+}
+#welcomeDiv{
+Background-image:url('image.jpeg');
+Font-size:50px;
+}
+Body{
+ background-size: cover;}
+#sampleDiv{
+Font-size:35px;
+
+}
+</style>
+</head>
+<body>
+<div id="welcomeDiv"><center><p>Welcome!<p></center></div>
+<div id="sampleDiv">
+ <form action="sample.html" method="post" id="sampleform">
+  <label for="name" style="font-size:35px">First Name:</label>
+  <input type="text" name="name" id="name">
+  <br>
+  Email:
+  <input type="text" name="email_id">
+  <br>
+Age:
+   <input type="number" name="Age" id="Age"><br>
+Password:
+ <input type="password" name="user-pwd"
+                            id="user-password"><br>
+Gender:
+ <input type="radio" name="gender" id="male">Male
+ <input type="radio" name="gender" id="female">Female
+<br>City:
+  <select name="city" id="city" width:40%;>
+            <option value="erode">Erode</option>
+            <option value="cbe">Coimbatore</option>
+            <option value="salem">Salem</option>
+        </select>
+<br>
+Department:
+  <input type="checkbox" name="subject" id="cse">CSE
+  <input type="checkbox" name="subject" id="it">IT
+  <input type="checkbox" name="subject" id="ece">ECE<br>
+ <input type="file" name="upload" id="fileselect"><br>
+
+Comments:
+ <textarea rows="5" cols="50" name="About Me"
+                            id="About Me"></textarea>
+
+
+<br>
+
+<br>
+  <center><input type="submit" value="SAVE"></center>
+</form>
+ 
+</body>
+</html>
