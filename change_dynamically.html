@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>
+        How to change the text of
+        a label using JavaScript ?
+    </title>
+</head>
+  
+<body style="text-align:center;">
+      
+    <h1 style="color:green;">
+        Welcome All!
+    </h1>
+  
+    <h4>
+        Click on the button to change
+        the text
+    </h4>
+  
+    <label id = "welcome">
+        Welcome to Presidio!
+    </label>
+      
+    <br>
+    <br>
+    <button onclick="myFunction()">
+        Click Here!
+    </button>
+   
+    <script>
+        function myFunction() {
+            var x = document.getElementById("welcome");
+
+            if (x.innerHTML == "welcome") {
+                x.innerHTML = "Hello Good morning, Welcome!";
+            } else {
+                x.innerHTML = "Hello World!";
+            }
+        }
+    </script>
+</body>
+  
+</html>
