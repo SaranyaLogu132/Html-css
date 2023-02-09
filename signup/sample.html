@@ -1,0 +1,67 @@
+<html>
+<head>
+<style>
+/* Set a style for all buttons */
+body {font-family: Arial, Helvetica, sans-serif;
+    text-align: center;}
+* {box-sizing: border-box;}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+#wrapper
+{
+  width:995px;
+  padding:0px;
+  margin:0px auto;
+  font-family:helvetica;
+  text-align:center;
+}
+</style>
+<script type="text/javascript" src="result.js"></script>
+<script>
+
+function add_field()
+{
+  var total_text=document.getElementsByClassName("input_text");
+  total_text=total_text.length+1;
+  document.getElementById("field_div").innerHTML=document.getElementById("field_div").innerHTML+
+  "<p id='input_text"+total_text+"_wrapper'>  <label>Enter Data</label><br><input type='text' class='input_text' id='input_text"+total_text+"' placeholder='Enter Text'><input type='button' value='Remove' onclick=remove_field('input_text"+total_text+"');></p>";
+}
+function remove_field(id)
+{ 
+  var total_text=document.getElementsByClassName("input_text");
+  total_text=total_text.length;
+  if(total_text > 1){
+  	document.getElementById(id+"_wrapper").innerHTML="";
+  }
+}
+function handleSubmit () {
+    const name = document.getElementById('input_text1').value;
+    const lname = document.getElementById('input_text2').value;
+    const city = document.getElementById('input_text3').value;
+    sessionStorage.setItem("NAME",name);
+    sessionStorage.setItem("Lastname",lname);
+    sessionStorage.setItem("City",city);
+    return;
+}
+</script>
+<body>
+<form action="result.html" method="POST">
+<div id="wrapper">
+<div id="field_div">
+<button style="width:auto;" onclick="add_field()";>Add</button>
+<button style="width:auto;" onclick="handleSubmit()">Save</button>
+</form>
+</div>
+</div>
+</body>
+</html>
+
