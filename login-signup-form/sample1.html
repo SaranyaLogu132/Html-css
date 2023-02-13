@@ -1,0 +1,84 @@
+<html>
+<head>
+	<title>Student Data</title>
+        <!--Jquery Link-->
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	
+	<!-- Bootstrap Styling-->
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	
+	
+	<!-- custom stylesheet-->
+	<link rel="stylesheet" type="text/css" href="dynamic.css" />
+ 
+	<!-- custom javascript-->
+	<script src="dynamic.js"></script>
+ 
+</head>
+<body>
+  
+    <div class="container">
+        <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
+                <div class="panel panel-info">
+ 
+                    <div class="panel-heading text-center">
+                   
+                        <h1 class="panel-title">Student Data</h1>
+                    </div>
+ 
+                    <div class="panel-body">
+                        <form role="form" method="post" action="/Users/saranya/HTML-CSS-New/login-signup-form/save.html">
+                            
+                            <div class="list_wrapper">  
+                                <div class="row">
+ 
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+ 
+                                        <div class="form-group">
+                                            Student Name
+                                            <input name="list[0]" id="name[0]"  type="text" placeholder="Enter Your Name" class="form-control"/>
+                                            
+                                        </div>
+                                    </div>
+ 
+                                    <div class="col-xs-7 col-sm-7 col-md-7">
+                                        <div class="form-group">
+                                            Email
+                                            <input autocomplete="off" name="list[0]" id="email[0]"  type="text" placeholder="Enter Email" class="form-control"/>
+                                        </div>
+                                    </div> 
+ 
+                                    <div class="col-xs-1 col-sm-1 col-md-1">
+                                        <br>
+                                       <button class="btn btn-primary list_add_button" type="button">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <input type="submit" value="Submit" onclick="handleSubmit()" class="btn btn-info btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+function handleSubmit(){
+
+    const name = document.getElementById('name[0]').value;
+    const email = document.getElementById('email[0]').value;
+    sessionStorage.setItem("NAME",name);
+    sessionStorage.setItem("EMAIL",email);
+
+    const name1 = document.getElementById('name[1]').value;
+    const email1 = document.getElementById('email[1]').value;
+    sessionStorage.setItem("NAME1",name1);
+    sessionStorage.setItem("EMAIL1",email1);
+
+    return;
+}
+</script>
+</html>
