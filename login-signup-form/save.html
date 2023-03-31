@@ -1,26 +1,125 @@
-<html>
-    <head>
-        <title>
-            Result Page
-        </title>
- <script type="text/javascript" src="save.js" ></script>
-    </head>
-    <body>
-        <h1>
-            Result Page
-        </h1>
-        <h2>
-            Name: <span id="result-name" />
-        </h2>
- <h2>
-            Email: <span id="result-email" />
-        </h2>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-      <h2>
-            Name: <span id="result-name1" />
-        </h2>
- <h2>
-            Email: <span id="result-email1" />
-        </h2>
-    </body>
-</html>
+/* Reseting */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     background-image: url(background.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container{
+    transform-style: preserve-3d;
+}
+
+.container .box{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.container .box .body{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: 0.9s ease;
+}
+
+
+
+.container .box .body .imgContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.container .box .body .imgContainer img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .box .body .content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+}
+
+.container .box:hover .body{
+    transform: rotateY(180deg);
+}
+
+.container .box .body .content div{
+    transform-style: preserve-3d;
+    padding: 20px;
+    background: linear-gradient(45deg, #FE0061,#FFEB3B);
+    transform: translateZ(100px);
+}
+
+.container .box .body .content div h3{
+    letter-spacing: 1px;
+}
+
+</style>
+<script type="text/javascript" src="save.js" ></script>
+
+<div class="container d-flex align-items-center justify-content-center flex-wrap">
+        <div class="box">
+            <div class="body">
+                <div class="imgContainer">
+                    <img src="studenticon1.jpg" alt="">
+                </div>
+                <div class="content d-flex flex-column align-items-center justify-content-center">
+                    <div>
+                        <h3 class="text-white fs-5">Student 1</h3>
+                        <h2>Name : <span id="result-name" /></h2>
+                        <h2>Email : <span id="result-email" /></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="body">
+                <div class="imgContainer">
+                    <img src="studenticon1.jpg" alt="">
+                </div>
+                <div class="content d-flex flex-column align-items-center justify-content-center">
+                    <div>
+                        <h3 class="text-white fs-5">Student 2</h3>
+                        <h2>Name :  <span id="result-name1" /></h2>
+                        <h2>Email :  <span id="result-email1" /></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div
+          id="user-data"
+          ngModelGroup="userData"
+          #userData="ngModelGroup">
+          <div class="form-group">
+            <label for="username">Username</label><label style="color:red">*</label>
+            <input
+              type="text"
+              id="username"
+              class="form-control"
+              ngModel
+              name="username"
+              required
+              username
+              #username="ngModel">
+              <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a username!</span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label><label style="color:red">*</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              ngModel
+              name="email"
+              required
+              email
+              #email="ngModel">
+            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter email!</span>
+          </div>
+        </div>
+        <p *ngIf="!userData.valid && userData.touched">User Data is invalid!</p>
+        <div class="form-group">
+          <label for="city">City</label><label style="color:red">*</label>
+          <select
+            id="secret"
+            class="form-control"
+            [ngModel]="city"
+            name="city">
+            <option value="erode">Erode</option>
+            <option value="coimbatore">Coimbatore</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone number</label><label style="color:red">*</label>
+          <input
+            type="text"
+            id="phone"
+            class="form-control"
+            ngModel
+            name="phone"
+            required
+            phone
+            maxlength="10" 
+            minlength="10"
+            pattern="^[7-9][0-9]{9}$" 
+            #phone="ngModel">
+            <span class="help-block" *ngIf="!phone.valid && phone.touched">Please enter a Phone number!</span>
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments</label>
+          <textarea
+            name="comments"
+            rows="3"
+            class="form-control"
+            [(ngModel)]="comments"></textarea>
+        </div>
+        <label for="gender">Gender</label><label style="color:red">*</label>
+        <div class="radio" *ngFor="let gender of genders">
+          
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              ngModel
+              [value]="gender"
+              required>
+            {{ gender }}
+          </label>
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!f.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12" style="text-align:center">
+      <h3>Your Data</h3>
+      <p>Username: {{ user.username }}</p>
+      <p>Mail: {{ user.email }}</p>
+      <p>City: {{ user.city }}</p>
+      <p>Phone: {{ user.phone }}</p>
+      <p>Comments: {{ user.comments }}</p>
+      <p>Gender: {{ user.gender }}</p>
+    </div>
+  </div>
+</div>
