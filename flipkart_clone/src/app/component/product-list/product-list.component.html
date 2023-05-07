@@ -1,117 +1,77 @@
-<section>
-    <div class="card">
-        <div class="common-heading">
-            <div class="common-heading-left">
-             <h1>Best Battery Phones</h1>
-             <h2>More than 4000mAh</h2>
-            </div>
-            <div class="common-heading-right">
-              <button>view all</button>
-            </div>
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/1350e22cff9663e7.png?q=100" alt="">
+                <h6>Top Offers</h6>
+            </a>
         </div>
-        <div class="common-row">
-            <div class="common-col">
-                <img src="./assets/p1.jpeg" alt="mobile">
-                <h3>One plus nord CE 2 lite</h3>
-                <h4>Min 10% off</h4>
-                <h4>Shop Now!</h4>
-            </div>
-            <div class="common-col">
-                <img src="./assets/p2.jpeg" alt="mobile">
-                <h3>Oppo A74 5G</h3>
-                <h4>Min 10% off</h4>
-                <h4>Shop Now!</h4>
-            </div>
-            <div class="common-col">
-                <img src="./assets/p3.jpeg" alt="mobile">
-                <h3>Vivo X80 Pro 5G</h3>
-                <h4>New Launch</h4>
-                <h4>Shop Now!</h4>
-            </div>
-            <div class="common-col">
-                <img src="./assets/p4.jpeg" alt="mobile">
-                <h3>Samsung Galaxy S23 Ultra</h3>
-                <h4>Min 15% off</h4>
-                <h4>Shop Now!</h4>
-            </div>
-            <div class="common-col">
-                <img src="./assets/p5.jpeg" alt="mobile">
-                <h3>Oppo Reno 8 5G</h3>
-                <h4>Min 20% off</h4>
-                <h4>Shop Now!</h4>
-            </div>
-            <div class="common-col">
-                <img src="./assets/p6.jpeg" alt="mobile">
-                <h3>Google Pixel 7 pro</h3>
-                <h4>Min 10% off</h4>
-                <h4>Shop Now!</h4>
-            </div>
-            <div class="common-col">
-                <img src="./assets/p7.jpeg" alt="mobile">
-                <h3>One Plus 10R 5G</h3>
-                <h4>Min 10% off</h4>
-                <h4>Shop Now!</h4>
-            </div>
-            
+        <div class="item">
+            <a (click)="filter('grocery')">
+                <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/46376ceed3448aff.png?q=100" alt="">
+                <h6>Grocery</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('mobiles')">
+                <img src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/d64cae0f8081256a.png?q=100" alt="">
+                <h6>Mobiles</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('fashion')">
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/d44ffc537ed6e241.png?q=100" alt="">
+                <h6>Fashion</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('electronics')">
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/7dbcda527b648814.png?q=100" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('appliances')">
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/e29a070388d534a5.png?q=100" alt="">
+                <h6>Appliances</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('travel')">
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/2dac2decff60c650.png?q=100" alt="">
+                <h6>Travel</h6>
+            </a>
+        </div>
+       
+        <div class="item">
+            <a (click)="filter('beauty')">
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/994a83c90019fb5f.png?q=100" alt="">
+                <h6>Beauty</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('furniture')"> 
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/fk-p-flap/128/128/image/d300931a0fd1c17e.png?q=100" alt="">
+                <h6>Home & Furniture</h6>
+            </a>
         </div>
     </div>
-</section>
+</div>
+<app-slider></app-slider>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter :searchKey:'title'">
+            <div class="card col-md-2">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 80ch;">{{item.title}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 80ch;">{{item.description}}</p>
+                <p><strong>Price:</strong> {{item.price | currency:"&#8377;"}}</p>
+                <div>
+                    <button class="btn btn-primary"  (click)=addtocart(item)>Add to cart</button>
+                    <button class="btn btn-primary" routerLink="/viewdetails">View </button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
 
-<section>
-    <div class="card">
-        <div class="common-heading">
-         <div class="common-heading-left">
-             <h1>Furniture Bestsellers section </h1>
-             <h2>Up to 15% OFF</h2>
-         </div>
-         <div class="common-heading-right">
-             <button>view all</button>
-         </div>
-        </div>
-        <div class="common-row">
-         <div class="common-col col-furniture">
-             <img src="./assets/f1.jpeg" alt="mobile">
-             <h3> swing chair</h3>
-             <h4> up to 30% off</h4>
-             <h4>Shop Now!</h4>
-         </div>
-         <div class="common-col col-furniture">
-             <img src="./assets/f2.jpeg" alt="mobile">
-             <h3>bean bag cover</h3>
-             <h4>up to 20% off</h4>
-             <h4>Shop Now!</h4>
-         </div>
-         <div class="common-col col-furniture">
-             <img src="./assets/f3.jpeg" alt="mobile">
-             <h3>furniture</h3>
-             <h4>up to 15% off</h4>
-             <h4>Shop Now!</h4>
-         </div>
-         <div class="common-col col-furniture">
-             <img src="./assets/f4.jpeg" alt="mobile">
-             <h3> soffaa</h3>
-             <h4>up to 10% off</h4>
-             <h4>Shop Now!</h4>
-         </div>
-         <div class="common-col col-furniture">
-             <img src="./assets/f5.jpeg" alt="mobile">
-             <h3>chair</h3>
-             <h4>up to 20% off</h4>
-             <h4>Shop Now!</h4>
-         </div>
-         <div class="common-col col-furniture">
-             <img src="./assets/f6.jpeg" alt="mobile">
-             <h3>mirror table</h3>
-             <h4>up to 25% off</h4>
-             <h4>Shop Now!</h4>
-         </div>
-         <div class="common-col col-furniture">
-             <img src="./assets/f7.jpeg" alt="mobile">
-             <h3>swing chair</h3>
-             <h4>up to 10% off</h4>
-             <h4>Shop Now!</h4>
-         </div>
-         
-     </div>
-    </div>
-</section>

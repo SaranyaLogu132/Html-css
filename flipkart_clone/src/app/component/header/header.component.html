@@ -19,7 +19,7 @@
     </div>
     <div class="search_container">
         <form id="search_form">
-            <input type="text" placeholder="Search for products brands and more" id="search_input" />
+            <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search Products" [ngModelOptions]="{standalone: true}">
         </form>
         <i class="fa-solid fa-magnifying-glass"></i>
         <!--recent search-->
@@ -106,10 +106,9 @@
         </div>
     </div>
 
-    <a href="https://www.flipkart.com/viewcart?exploreMode=true&preference=FLIPKART">
-        <div class="card_link">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <p>Cart</p>
-        </div>
-    </a>
+  
+    <button routerLink="cart" class="btn btn-primary">
+        <i style="font-size: 30px;" class="fa-solid fa-cart-shopping"></i>
+        <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div>
+    </button>
 </header>
