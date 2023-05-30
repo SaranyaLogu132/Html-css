@@ -1,0 +1,36 @@
+<div class="container my-5">
+  <div class="col-md-7 mx-auto">
+    <div class="card">
+      <div class="row card-height">
+        <div class="col-md-5 left">
+          <div class="left-top">
+            <h3>Login</h3>
+            <p>Get access to your Orders, Wishlist and Recommendations</p>
+          </div>
+          <div class="b-img">
+            <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/login_img_c4a81e.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-7 right">
+          <form (ngSubmit)="loginUser()" [formGroup]="loginForm">
+            <div class="form-floating mb-3">
+              <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Password</label>
+            </div>
+            <span class="mb-3">
+              By continuing, you agree to Flipkart's <a href="">Terms of Use</a> and <a href="">Privacy Policy.</a>
+            </span>
+            <button type="submit" class="btn btn-orange d-block mt-5 w-100">Login</button>
+          </form>
+          <div class="text-center">
+            <a routerLink="/signup">New to flipKart? Create an account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
